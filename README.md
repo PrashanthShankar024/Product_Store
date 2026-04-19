@@ -1,8 +1,8 @@
-# LUXE - Premium Fashion Store
+# STYLE MANDIR - Premium Fashion Store
 
 A modern, fully responsive e-commerce product store built with **HTML, CSS, and JavaScript** as a college/project assignment.
 
-![LUXE Fashion Store]
+![STYLE MANDIR Fashion Store]
 
 ## ✨ Features
 
