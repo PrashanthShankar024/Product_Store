@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>STYLE MANDIR • Premium Fashion</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold fs-3 d-flex align-items-center gap-2" href="#">
+        <i class="fas fa-gem text-primary"></i> <span style="color: blue;">STYLE</span> MANDIR
+      </a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto gap-4">
+          <li class="nav-item"><a class="nav-link fw-bold active" href="#" id="allTab" onclick="showAllProducts()">Home</a></li>
+          <li class="nav-item"><a class="nav-link fw-bold" href="#collections">Collections</a></li>
+          <li class="nav-item"><a class="nav-link fw-bold" href="#footer">Contact</a></li>
+           <li class="nav-item"><a class="nav-link fw-bold" href="#" id="likedTab" onclick="showLikedProducts()">❤️Liked 
+            <span id="likedCount" class="badge bg-danger ms-1">0</span>
+          </a></li>
+        </ul>
+      </div>
+
+      <div class="d-flex align-items-center gap-4">
+        <div class="input-group" style="width: 280px;">
+          <span class="input-group-text bg-white border-end-0"><i class="fas fa-search text-muted"></i></span>
+          <input id="navSearch" type="text" class="form-control border-start-0" 
+                 placeholder="Search products..." onkeyup="filterProducts()">
+        </div>
+
+        <div onclick="showCart()" class="position-relative cursor-pointer">
+          <i class="fas fa-shopping-cart fs-4 text-dark"></i>
+          <span id="cartBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero text-center">
+    <div class="container">
+        <h2> <marquee behavior="scroll" direction="left" scrollamount="10" class="styling"><a href=""><i class="fas fa-gem text-primary"></i> STYLE MANDIR</a>
+  
+</marquee></h2>
+      <h1 class="display-3 fw-bold mb-3 text-dark">SPRING 2026 COLLECTION</h1>
+      <p class="lead fs-4 mb-4 text-muted">Discover Exclusive Fashion for Every Occasion</p>
+      <button onclick="document.getElementById('products-section').scrollIntoView({behavior:'smooth'})" 
+              class="btn btn-primary btn-lg px-5 py-3 rounded-5 fw-bold">
+        SHOP NOW <i class="fas fa-arrow-right ms-2"></i>
+      </button>
+    </div>
+  </section>
+
+  <div class="container py-5" id="products-section">
+    <h2 class="mb-4 d-flex justify-content-center" id="sectionTitle">All Products</h2>
+
+    <!-- Category Filters -->
+    <div class="mb-5 d-flex justify-content-center" id="collections">
+      <div class="d-flex flex-wrap gap-2" id="categoryFilters">
+        <button class="btn btn-outline-dark active rounded-5 px-4 py-2" data-category="All" onclick="filterByCategory(this)">All</button>
+        <button class="btn btn-outline-dark rounded-5 px-4 py-2" data-category="Shirts" onclick="filterByCategory(this)">👕Shirts</button>
+        <button class="btn btn-outline-dark rounded-5 px-4 py-2" data-category="Pants" onclick="filterByCategory(this)">👖Pants</button>
+        <button class="btn btn-outline-dark rounded-5 px-4 py-2" data-category="Jeans" onclick="filterByCategory(this)">👖Jeans</button>
+        <button class="btn btn-outline-dark rounded-5 px-4 py-2" data-category="Jackets" onclick="filterByCategory(this)">🧥Jackets</button>
+        <button class="btn btn-outline-dark rounded-5 px-4 py-2" data-category="Hoodies" onclick="filterByCategory(this)">🧥Hoodies</button>
+        <button class="btn btn-outline-dark rounded-5 px-4 py-2" data-category="Kurtas" onclick="filterByCategory(this)">👗Kurtas</button>
+        <button class="btn btn-outline-dark rounded-5 px-4 py-2" data-category="Sarees" onclick="filterByCategory(this)">🥻Sarees</button>
+      </div>
+    </div>
+
+    <!-- Sort -->
+    <div class="d-flex justify-content-end mb-4">
+      <select id="sortSelect" class="form-select w-auto rounded-5" onchange="filterProducts()">
+        <option value="default">Sort by Featured</option>
+        <option value="price-low">Price: Low to High</option>
+        <option value="price-high">Price: High to Low</option>
+        <option value="popularity">Most Liked</option>
+      </select>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="row g-4" id="productContainer"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="row gy-5">
+        <div class="col-lg-4">
+          <h2 class="fw-bold text-primary"><i class="fas fa-gem"></i> STYLE MANDIR </h2>
+          <p class="text-muted mt-3">Premium fashion for the modern individual. Quality you can trust, style you'll love.</p>
+          <div class="d-flex gap-3 mt-4">
+            <a href="#" class="text-muted fs-4"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-muted fs-4"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="text-muted fs-4"><i class="fab fa-twitter"></i></a>
+          </div>
+          <a href="#" style="color: black;">+91 9998887770</a><br>
+          <a href="#" style="color: black;">stylemandir@gmail.com</a>
+        </div>
+
+        <div class="col-lg-2 col-6">
+          <h5 class="fw-semibold">Shop</h5>
+          <ul class="list-unstyled mt-3">
+            <li><a href="#" class="text-muted text-decoration-none">Home</a></li>
+            <li><a href="#" class="text-muted text-decoration-none">Contact</a></li>
+            <li><a href="#" class="text-muted text-decoration-none">Search</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-6">
+          <h5 class="fw-semibold">Categories</h5>
+          <ul class="list-unstyled mt-3">
+            <li><a href="#" class="text-muted text-decoration-none">Shirts</a></li>
+            <li><a href="#" class="text-muted text-decoration-none">Jeans</a></li>
+            <li><a href="#" class="text-muted text-decoration-none">Kurtas</a></li>
+            <li><a href="#" class="text-muted text-decoration-none">Sarees</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-6">
+          <h5 class="fw-semibold">Support</h5>
+          <ul class="list-unstyled mt-3">
+            <li><a href="#" class="text-muted text-decoration-none">Contact Us</a></li>
+            <li><a href="#" class="text-muted text-decoration-none">Shipping</a></li>
+            <li><a href="#" class="text-muted text-decoration-none">Returns</a></li>
+            <li><a href="#" class="text-muted text-decoration-none">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-6">
+          <h5 class="fw-semibold">Newsletter</h5>
+          <p class="text-muted small mt-3">Stay updated with our latest collections</p>
+          <div class="input-group mt-2">
+            <input type="email" class="form-control" placeholder="Your email">
+            <button class="btn btn-primary">Subscribe</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-top mt-5 pt-4 text-center text-muted small">
+        <p class="mb-1">&copy; 2026 LUXE Fashion. All Rights Reserved.</p>
+        <p>Made with ❤️, Built By Prashanth Shankar</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Quick View Modal -->
+  <div class="modal fade" id="quickViewModal" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content" style="border-radius:24px;">
+        <div class="modal-body p-0" id="modalBody"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Offcanvas -->
+  <div class="offcanvas offcanvas-end" id="cartOffcanvas">
+    <div class="offcanvas-header">
+      <h3>Your Cart</h3>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body" id="cartBody"></div>
+    <div class="p-4 border-top">
+      <div class="d-flex justify-content-between mb-3 fs-5">
+        <strong>Total</strong>
+        <strong id="cartTotal">₹0</strong>
+      </div>
+      <button onclick="checkout()" class="btn btn-primary w-100 py-3 rounded-5 fw-bold">PROCEED TO CHECKOUT</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
