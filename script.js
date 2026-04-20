@@ -274,7 +274,7 @@ window.removeFromCart = function(index) {
 };
 
 window.checkout = function() {
-  alert("🎉 Thank you for shopping at LUXE! Your order is placed (Demo).");
+  alert("🎉 Thank you for shopping at STYLE MANDIR! Your order is placed.");
   cart = [];
   saveData();
   updateCartBadge();
